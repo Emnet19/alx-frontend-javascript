@@ -1,5 +1,4 @@
 
-
 interface Teacher {
   readonly firstName: string; // only modifiable on initialization
   readonly lastName: string;  // only modifiable on initialization
