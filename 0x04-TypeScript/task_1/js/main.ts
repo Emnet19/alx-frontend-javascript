@@ -51,6 +51,7 @@ const director1: Directors = {
 
 console.log(director1);
 
+// task_1/js/main.ts
 
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
@@ -61,8 +62,8 @@ const printTeacher: printTeacherFunction = (firstName, lastName) => {
 };
 
 // Example usage
-console.log(printTeacher("John", "Doe")); // Output: J. Doe
-console.log(printTeacher("Alice", "Smith")); // Output: A. Smith
+console.log(printTeacher("John", "Doe"));   // J. Doe
+console.log(printTeacher("Alice", "Smith")); // A. Smith
 
 
 interface StudentConstructor {
