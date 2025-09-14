@@ -34,22 +34,66 @@ teacher1.email = "alice.smith@example.com";
 console.log(teacher1);
 
 
-// Directors interface extending Teacher
-interface Directors extends Teacher {
-  numberOfReports: number; // required attribute
+// task_1/js/main.ts
+
+// Director interface
+interface DirectorInterface {
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  workDirectorTasks(): string;
+}
+
+// Teacher interface
+interface TeacherInterface {
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  workTeacherTasks(): string;
+}
+
+// Director class implementing DirectorInterface
+class Director implements DirectorInterface {
+  workFromHome(): string {
+    return "Working from home";
+  }
+  getCoffeeBreak(): string {
+    return "Getting a coffee break";
+  }
+  workDirectorTasks(): string {
+    return "Getting to director tasks";
+  }
+}
+
+// Teacher class implementing TeacherInterface
+class Teacher implements TeacherInterface {
+  workFromHome(): string {
+    return "Cannot work from home";
+  }
+  getCoffeeBreak(): string {
+    return "Cannot have a break";
+  }
+  workTeacherTasks(): string {
+    return "Getting to work";
+  }
+}
+
+// Function that creates either a Director or Teacher
+function createEmployee(salary: number | string): Director | Teacher {
+  if (typeof salary === "number" && salary < 500) {
+    return new Teacher();
+  }
+  return new Director();
 }
 
 // Example usage
-const director1: Directors = {
-  firstName: "John",
-  lastName: "Doe",
-  fullTimeEmployee: true,
-  location: "Addis Ababa",
-  numberOfReports: 10,  // required
-  department: "Engineering" // extra attribute
-};
+console.log(createEmployee(200));   // Teacher
+console.log(createEmployee(1000));  // Director
+console.log(createEmployee("500")); // Director
 
-console.log(director1);
+
+
+
+
+
 
 // task_1/js/main.ts
 
