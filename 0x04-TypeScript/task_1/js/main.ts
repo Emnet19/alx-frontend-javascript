@@ -66,19 +66,22 @@ console.log(printTeacher("John", "Doe"));   // J. Doe
 console.log(printTeacher("Alice", "Smith")); // A. Smith
 
 
+// task_1/js/main.ts
+
+// Interface describing the constructor arguments
 interface StudentConstructor {
   firstName: string;
   lastName: string;
 }
 
 // Interface describing the class methods
-interface StudentInterface {
+interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
-
-class StudentClass implements StudentInterface {
+// The class implementation
+class StudentClass implements StudentClassInterface {
   firstName: string;
   lastName: string;
 
@@ -95,4 +98,10 @@ class StudentClass implements StudentInterface {
     return this.firstName;
   }
 }
+
+// Example usage
+const student = new StudentClass({ firstName: "Alice", lastName: "Smith" });
+console.log(student.workOnHomework()); // Output: Currently working
+console.log(student.displayName());    // Output: Alice
+
 
