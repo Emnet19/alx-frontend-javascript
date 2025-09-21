@@ -1,7 +1,6 @@
-/// <reference path="./interface.ts" />
 
-import { RowID, RowElement } from './interface';
+import { RowElement } from './interface';
 
-declare function insertRow(row: RowElement): RowID;
-declare function deleteRow(rowId: RowID): void;
-declare function updateRow(rowId: RowID, row: RowElement): RowID;
+declare function insertRow(row: RowElement): number;
+declare function deleteRow(rowId: number): void;
+declare function updateRow(rowId: number, row: RowElement): number;
