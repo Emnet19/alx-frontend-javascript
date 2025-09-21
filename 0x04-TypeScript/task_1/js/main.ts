@@ -1,4 +1,4 @@
-// task_1/js/main.ts
+
 
 interface Teacher {
   readonly firstName: string; // only modifiable on initialization
@@ -10,12 +10,10 @@ interface Teacher {
   [key: string]: any;
 }
 
-// ✅ Directors interface extending Teacher
 interface Directors extends Teacher {
   numberOfReports: number; // mandatory
 }
 
-// Example usage
 const teacher1: Teacher = {
   firstName: "Alice",
   lastName: "Smith",
@@ -26,7 +24,6 @@ const teacher1: Teacher = {
   subject: "Mathematics"
 };
 
-// Modify allowed properties
 teacher1.fullTimeEmployee = false;
 teacher1.location = "Bahir Dar";
 teacher1.email = "alice.smith@example.com";
@@ -44,7 +41,6 @@ const director1: Directors = {
 console.log(director1);
 
 
-// ----------------- DirectorInterface & TeacherInterface -----------------
 interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
@@ -93,7 +89,6 @@ console.log(createEmployee(1000));  // Director
 console.log(createEmployee("500")); // Director
 
 
-// ----------------- printTeacher -----------------
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
@@ -106,7 +101,6 @@ console.log(printTeacher("John", "Doe"));
 console.log(printTeacher("Alice", "Smith")); 
 
 
-// ----------------- StudentClass -----------------
 interface StudentConstructor {
   firstName: string;
   lastName: string;
