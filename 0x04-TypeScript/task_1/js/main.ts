@@ -40,15 +40,13 @@ const director1: Directors = {
 };
 
 console.log(director1);
-
 interface printTeacherFunction {
   ({ firstName, lastName }: { firstName: string; lastName: string }): string;
 }
 
 function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
-  return `${firstName[0]}. ${lastName}`;
+  return `${firstName}. ${lastName}`;
 }
 
 console.log(printTeacher({ firstName: "John", lastName: "Doe" }));   // J. Doe
 console.log(printTeacher({ firstName: "Alice", lastName: "Smith" })); // A. Smith
-
