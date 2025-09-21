@@ -1,3 +1,4 @@
+// task_1/js/main.ts
 
 interface Teacher {
   readonly firstName: string; // only modifiable on initialization
@@ -6,11 +7,15 @@ interface Teacher {
   yearsOfExperience?: number; // optional
   location: string;           // always defined
 
- 
   [key: string]: any;
 }
 
-// Create a Teacher object
+// ✅ Directors interface extending Teacher
+interface Directors extends Teacher {
+  numberOfReports: number; // mandatory
+}
+
+// Example usage
 const teacher1: Teacher = {
   firstName: "Alice",
   lastName: "Smith",
@@ -18,38 +23,40 @@ const teacher1: Teacher = {
   location: "Addis Ababa",
   yearsOfExperience: 3,
   contract: true,  // extra attribute
-  subject: "Mathematics" // another extra attribute
+  subject: "Mathematics"
 };
-
-
 
 // Modify allowed properties
 teacher1.fullTimeEmployee = false;
 teacher1.location = "Bahir Dar";
-
-// Add more extra attributes dynamically
 teacher1.email = "alice.smith@example.com";
 
 console.log(teacher1);
 
+const director1: Directors = {
+  firstName: "John",
+  lastName: "Doe",
+  fullTimeEmployee: true,
+  location: "Bahir Dar",
+  numberOfReports: 10
+};
 
-// task_1/js/main.ts
+console.log(director1);
 
-// Director interface
+
+// ----------------- DirectorInterface & TeacherInterface -----------------
 interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workDirectorTasks(): string;
 }
 
-// Teacher interface
 interface TeacherInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workTeacherTasks(): string;
 }
 
-// Director class implementing DirectorInterface
 class Director implements DirectorInterface {
   workFromHome(): string {
     return "Working from home";
@@ -62,7 +69,6 @@ class Director implements DirectorInterface {
   }
 }
 
-// Teacher class implementing TeacherInterface
 class Teacher implements TeacherInterface {
   workFromHome(): string {
     return "Cannot work from home";
@@ -75,7 +81,6 @@ class Teacher implements TeacherInterface {
   }
 }
 
-// Function that creates either a Director or Teacher
 function createEmployee(salary: number | string): Director | Teacher {
   if (typeof salary === "number" && salary < 500) {
     return new Teacher();
@@ -83,19 +88,12 @@ function createEmployee(salary: number | string): Director | Teacher {
   return new Director();
 }
 
-// Example usage
 console.log(createEmployee(200));   // Teacher
 console.log(createEmployee(1000));  // Director
 console.log(createEmployee("500")); // Director
 
 
-
-
-
-
-
-// task_1/js/main.ts
-
+// ----------------- printTeacher -----------------
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
@@ -104,26 +102,21 @@ const printTeacher: printTeacherFunction = (firstName, lastName) => {
   return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-// Example usage
-console.log(printTeacher("John", "Doe"));   // J. Doe
-console.log(printTeacher("Alice", "Smith")); // A. Smith
+console.log(printTeacher("John", "Doe"));   
+console.log(printTeacher("Alice", "Smith")); 
 
 
-// task_1/js/main.ts
-
-// Interface describing the constructor arguments
+// ----------------- StudentClass -----------------
 interface StudentConstructor {
   firstName: string;
   lastName: string;
 }
 
-// Interface describing the class methods
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
-// The class implementation
 class StudentClass implements StudentClassInterface {
   firstName: string;
   lastName: string;
@@ -142,26 +135,6 @@ class StudentClass implements StudentClassInterface {
   }
 }
 
-// Example usage
 const student = new StudentClass({ firstName: "Alice", lastName: "Smith" });
-console.log(student.workOnHomework()); // Output: Currently working
-console.log(student.displayName());    // Output: Alice
-
-// Extend Teacher interface
-interface Directors extends Teacher {
-  numberOfReports: number; // mandatory attribute
-}
-
-// Example usage
-const director1: Directors = {
-  firstName: "John",
-  lastName: "Doe",
-  fullTimeEmployee: true,
-  location: "Addis Ababa",
-  numberOfReports: 5 // required field
-};
-
-console.log(director1);
-
-
-
+console.log(student.workOnHomework());
+console.log(student.displayName());
