@@ -147,4 +147,21 @@ const student = new StudentClass({ firstName: "Alice", lastName: "Smith" });
 console.log(student.workOnHomework()); // Output: Currently working
 console.log(student.displayName());    // Output: Alice
 
+// Extend Teacher interface
+interface Directors extends Teacher {
+  numberOfReports: number; // mandatory attribute
+}
+
+// Example usage
+const director1: Directors = {
+  firstName: "John",
+  lastName: "Doe",
+  fullTimeEmployee: true,
+  location: "Addis Ababa",
+  numberOfReports: 5 // required field
+};
+
+console.log(director1);
+
+
 
