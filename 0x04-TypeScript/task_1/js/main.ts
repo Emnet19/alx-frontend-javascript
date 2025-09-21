@@ -1,17 +1,16 @@
 
-
 interface Teacher {
-  readonly firstName: string; // only modifiable on initialization
-  readonly lastName: string;  // only modifiable on initialization
-  fullTimeEmployee: boolean;  // always defined
-  yearsOfExperience?: number; // optional
-  location: string;           // always defined
+  readonly firstName: string;
+  readonly lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
 
   [key: string]: any;
 }
 
 interface Directors extends Teacher {
-  numberOfReports: number; // mandatory
+  numberOfReports: number;
 }
 
 const teacher1: Teacher = {
@@ -20,7 +19,7 @@ const teacher1: Teacher = {
   fullTimeEmployee: true,
   location: "Addis Ababa",
   yearsOfExperience: 3,
-  contract: true,  // extra attribute
+  contract: true,
   subject: "Mathematics"
 };
 
@@ -39,7 +38,6 @@ const director1: Directors = {
 };
 
 console.log(director1);
-
 
 interface DirectorInterface {
   workFromHome(): string;
@@ -84,10 +82,9 @@ function createEmployee(salary: number | string): Director | Teacher {
   return new Director();
 }
 
-console.log(createEmployee(200));   // Teacher
-console.log(createEmployee(1000));  // Director
-console.log(createEmployee("500")); // Director
-
+console.log(createEmployee(200));
+console.log(createEmployee(1000));
+console.log(createEmployee("500"));
 
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
@@ -97,9 +94,8 @@ const printTeacher: printTeacherFunction = (firstName, lastName) => {
   return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-console.log(printTeacher("John", "Doe"));   
-console.log(printTeacher("Alice", "Smith")); 
-
+console.log(printTeacher("John", "Doe"));
+console.log(printTeacher("Alice", "Smith"));
 
 interface StudentConstructor {
   firstName: string;
